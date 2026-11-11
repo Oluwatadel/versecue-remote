@@ -1,0 +1,7 @@
+const {withAppBuildGradle,withProjectBuildGradle}=require('expo/config-plugins');
+const path=require('node:path'),os=require('node:os'),crypto=require('node:crypto');
+// Keep native object paths short on Windows without changing the source checkout or machine policy.
+const staging=root=>path.join(os.homedir(),'.vcb',crypto.createHash('sha256').update(root).digest('hex').slice(0,8)).replace(/\\/g,'/');
+module.exports=config=>{if(process.platform!=='win32')return config;
+ config=withAppBuildGradle(config,c=>{const marker='// VerseCue Windows app native paths';if(!c.modResults.contents.includes(marker)){c.modResults.contents=c.modResults.contents.replace('defaultConfig {','defaultConfig {\n        externalNativeBuild { cmake { arguments "-DCMAKE_OBJECT_PATH_MAX=250" } }');c.modResults.contents+='\n'+marker+'\nandroid.externalNativeBuild.cmake.buildStagingDirectory = file("'+staging(c.modRequest.projectRoot)+'/app")\n';}return c;});
+ return withProjectBuildGradle(config,c=>{const marker='// VerseCue Windows native module object paths';if(!c.modResults.contents.includes(marker))c.modResults.contents+='\n'+marker+'\nsubprojects { subproject ->\n    subproject.plugins.withId("com.android.library") {\n        subproject.android.defaultConfig.externalNativeBuild.cmake.arguments.add("-DCMAKE_OBJECT_PATH_MAX=250")\n        subproject.android.externalNativeBuild.cmake.buildStagingDirectory = new File("'+staging(c.modRequest.projectRoot)+'", subproject.name)\n    }\n}\n';return c;});};

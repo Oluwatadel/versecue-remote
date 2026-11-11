@@ -1,0 +1,4 @@
+const {withAndroidManifest,withDangerousMod}=require('expo/config-plugins');
+const fs=require('node:fs/promises'),path=require('node:path');
+module.exports=function withLocalRemoteNetwork(config){config=withAndroidManifest(config,c=>{const app=c.modResults.manifest.application[0];app.$['android:usesCleartextTraffic']='false';app.$['android:networkSecurityConfig']='@xml/versecue_network_security';return c;});return withDangerousMod(config,['android',async c=>{const root=path.join(c.modRequest.platformProjectRoot,'app/src/main/res/xml');await fs.mkdir(root,{recursive:true});await fs.writeFile(path.join(root,'versecue_network_security.xml'),`<?xml version="1.0" encoding="utf-8"?>
+<network-security-config><base-config cleartextTrafficPermitted="false"/><domain-config cleartextTrafficPermitted="true"><domain includeSubdomains="true">versecue.local</domain></domain-config></network-security-config>`);return c;}]);};

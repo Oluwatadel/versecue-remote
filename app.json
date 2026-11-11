@@ -1,25 +1,60 @@
 {
   "expo": {
-    "name": "versecue-remote",
+    "name": "VerseCue Remote",
     "slug": "versecue-remote",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "version": "1.1.3",
+    "orientation": "landscape",
+    "icon": "./assets/versecue-logo.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.versecue.remote",
+      "infoPlist": {
+        "NSLocalNetworkUsageDescription": "Connect to your VerseCue desktop on the same local network.",
+        "NSAppTransportSecurity": {
+          "NSAllowsLocalNetworking": true
+        },
+        "NSBonjourServices": [
+          "_versecue._tcp"
+        ]
+      },
+      "buildNumber": "5",
+      "requireFullScreen": true
     },
     "android": {
+      "package": "com.versecue.remote",
+      "permissions": [
+        "CAMERA",
+        "INTERNET",
+        "ACCESS_LOCAL_NETWORK"
+      ],
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/versecue-logo.png",
+        "backgroundColor": "#ffffff"
       },
-      "predictiveBackGestureEnabled": false
+      "versionCode": 5
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Scan the pairing QR displayed in VerseCue desktop settings.",
+          "recordAudioAndroid": false
+        }
+      ],
+      "expo-secure-store",
+      "./plugins/withLocalRemoteNetwork.cjs",
+      "./plugins/withWindowsBuildPaths.cjs",
+      "expo-router",
+      "./plugins/withDirectLanDns.cjs"
+    ],
+    "scheme": "versecue-remote",
+    "platforms": [
+      "ios",
+      "android"
+    ]
   }
 }
