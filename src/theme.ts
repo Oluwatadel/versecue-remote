@@ -2,44 +2,44 @@
 export type ThemeColors={ink:string;muted:string;blue:string;accentText:string;line:string;surface:string;back:string;sidebar:string;header:string;item:string;input:string;selection:string;danger:string;failure:string};
 export type RemoteTheme={name:string;dark:boolean;colors:ThemeColors};
 export const desktopPalettes:Record<string,RemoteTheme>={
-  "VerseCue Dark": {
-    "name": "VerseCue Dark",
+  "verseVIO Dark": {
+    "name": "verseVIO Dark",
     "dark": true,
     "colors": {
-      "ink": "#F8FAFC",
-      "muted": "#A2ACB9",
-      "blue": "#2563EB",
-      "accentText": "#38BDF8",
-      "line": "#33465F",
-      "surface": "#1E293B",
-      "back": "#0B0F19",
-      "sidebar": "#0F172A",
-      "header": "#0F172A",
-      "item": "#334155",
-      "input": "#0B0F19",
-      "selection": "#334155",
-      "danger": "#EF4444",
-      "failure": "#7F1D1D"
+      "ink": "#FFFFFF",
+      "muted": "#B8C0CE",
+      "blue": "#765314",
+      "accentText": "#E7B85C",
+      "line": "#344054",
+      "surface": "#182536",
+      "back": "#101828",
+      "sidebar": "#0B1F3A",
+      "header": "#101828",
+      "item": "#243348",
+      "input": "#101828",
+      "selection": "#243348",
+      "danger": "#B42318",
+      "failure": "#FEE4E2"
     }
   },
   "Celestial Blue": {
     "name": "Celestial Blue",
     "dark": false,
     "colors": {
-      "ink": "#172D48",
-      "muted": "#526783",
-      "blue": "#285F9B",
-      "accentText": "#3468A3",
-      "line": "#C8D8EA",
+      "ink": "#101828",
+      "muted": "#5B6474",
+      "blue": "#0B1F3A",
+      "accentText": "#765314",
+      "line": "#E4E1D9",
       "surface": "#FFFFFF",
-      "back": "#EFF5FC",
-      "sidebar": "#E4EDF8",
+      "back": "#F8F6F0",
+      "sidebar": "#F1EFE8",
       "header": "#FFFFFF",
-      "item": "#E8F1FC",
-      "input": "#F8FBFF",
-      "selection": "#E8F1FC",
-      "danger": "#A52D47",
-      "failure": "#FCE5EB"
+      "item": "#F4F1E9",
+      "input": "#FFFFFF",
+      "selection": "#F4F1E9",
+      "danger": "#B42318",
+      "failure": "#FEE4E2"
     }
   },
   "Pearl & Gold": {
@@ -266,40 +266,40 @@ export const desktopPalettes:Record<string,RemoteTheme>={
     "name": "Clean Light",
     "dark": false,
     "colors": {
-      "ink": "#0F172A",
-      "muted": "#5E6D83",
-      "blue": "#2563EB",
-      "accentText": "#2461E6",
-      "line": "#E2E8F0",
+      "ink": "#101828",
+      "muted": "#5B6474",
+      "blue": "#0B1F3A",
+      "accentText": "#765314",
+      "line": "#E4E1D9",
       "surface": "#FFFFFF",
-      "back": "#E8EEF5",
-      "sidebar": "#F8FAFC",
+      "back": "#F8F6F0",
+      "sidebar": "#F1EFE8",
       "header": "#FFFFFF",
-      "item": "#F1F5F9",
+      "item": "#F4F1E9",
       "input": "#FFFFFF",
-      "selection": "#F1F5F9",
-      "danger": "#DC2626",
-      "failure": "#FECACA"
+      "selection": "#F4F1E9",
+      "danger": "#B42318",
+      "failure": "#FEE4E2"
     }
   },
   "Classic Light": {
     "name": "Classic Light",
     "dark": false,
     "colors": {
-      "ink": "#1A1A1A",
-      "muted": "#676767",
-      "blue": "#0078D4",
-      "accentText": "#0068B8",
-      "line": "#CFCFCF",
+      "ink": "#101828",
+      "muted": "#5B6474",
+      "blue": "#0B1F3A",
+      "accentText": "#765314",
+      "line": "#E4E1D9",
       "surface": "#FFFFFF",
-      "back": "#F3F3F3",
-      "sidebar": "#E6E6E6",
+      "back": "#F8F6F0",
+      "sidebar": "#F1EFE8",
       "header": "#FFFFFF",
-      "item": "#EDEDED",
+      "item": "#F4F1E9",
       "input": "#FFFFFF",
-      "selection": "#EDEDED",
-      "danger": "#C42B1C",
-      "failure": "#FDE7E9"
+      "selection": "#F4F1E9",
+      "danger": "#B42318",
+      "failure": "#FEE4E2"
     }
   },
   "Solarized Light": {

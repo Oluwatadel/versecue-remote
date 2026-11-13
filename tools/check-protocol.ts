@@ -15,7 +15,7 @@ async function main(){let count=0;const check=(v:unknown,label:string)=>{assert.
  for(const hex of ['08080808','7f000001','a9fea9fe','ac0fffff','ac200001','c0a70101','00000000','e00000fb'])check(!isLanUrl('http://versecue-001122aabbcc-'+hex+'.versecue.local:45678'),'reject non-private direct endpoint '+hex);
  check(!isLanUrl('http://versecue-001122aabbcc-c0a8010a.versecue.local.evil.com:45678'),'reject direct-host suffix spoofing');
  const offline=new RemoteClient(n=>randomBytes(n),async()=>{throw new TypeError('Network request failed');});
- await assert.rejects(()=>offline.pair(pairing,'Phone'),/fresh QR from the updated VerseCue desktop/);check(true,'legacy DNS failures explain how to generate an updated QR');
+ await assert.rejects(()=>offline.pair(pairing,'Phone'),/fresh QR from the updated verseVIO desktop/);check(true,'legacy DNS failures explain how to generate an updated QR');
  const directPairing={...pairing,url:'http://versecue-001122aabbcc-c0a8010a.versecue.local:45678'};
  await assert.rejects(()=>offline.pair(directPairing,'Phone'),/same private Wi-Fi/);check(true,'unreachable direct connections show actionable network guidance');
  const client=new RemoteClient(n=>randomBytes(n),async(_url,options)=>{const request=open<any>(secret,'request','/pair',JSON.parse(String(options?.body)));return Response.json(seal(secret,'response','/pair',{id:request.id,ts:Date.now(),data:{sessionId:'00112233445566778899aabbccddeeff',sessionKey:encode(secret),expiresAt:Date.now()+3600000,desktopName:'Test desktop'}},randomBytes(12)));});check((await client.pair(pairing as any,'Phone')).desktopName==='Test desktop','pairing response is authenticated and tied to its request');

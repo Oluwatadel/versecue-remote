@@ -7,7 +7,7 @@ import {isLanUrl,parsePairing,RemoteClient,type Args,type Session,type Snapshot}
 const STORE='versecue.remote.session.v1',client=new RemoteClient(n=>Crypto.getRandomBytes(n));
 const ensureNetwork=()=>requireLocalNetworkAccess(Platform.OS,Number(Platform.Version),{
  check:()=>PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_LOCAL_NETWORK),
- request:async()=>await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_LOCAL_NETWORK,{title:'Connect to your desktop',message:'VerseCue needs local network access to control the desktop you pair with on the same Wi-Fi.',buttonPositive:'Continue'})===PermissionsAndroid.RESULTS.GRANTED
+ request:async()=>await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_LOCAL_NETWORK,{title:'Connect to your desktop',message:'verseVIO needs local network access to control the desktop you pair with on the same Wi-Fi.',buttonPositive:'Continue'})===PermissionsAndroid.RESULTS.GRANTED
 });
 type RemoteState={session:Session|null;snapshot:Snapshot|null;busy:boolean;error:string;lastSync:number;connecting:boolean;connect:(link:string)=>Promise<void>;disconnect:()=>void;command:(action:string,args?:Args)=>Promise<boolean>;query:<T>(action:string,args?:Args)=>Promise<T>;confirm:(title:string,message:string,action:string,args?:Args)=>void;clearError:()=>void};
 const Context=createContext<RemoteState|null>(null);

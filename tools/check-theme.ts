@@ -13,9 +13,9 @@ for(const match of source.matchAll(/new\("([^"]+)", "([^"]+)", (true|false)\)/g)
  assert.ok(['#ffffff','#000000'].includes(contrastText(theme.colors.blue)));count++;
 }
 assert.equal(count,Object.keys(desktopPalettes).length);
-const base=resolveTheme('VerseCue Dark');assert.equal(resolveTheme('VerseCue Dark',{...base,colors:{...base.colors,back:'#123456'}}).colors.back,'#123456');
-assert.equal(resolveTheme('VerseCue Dark',{...base,colors:{...base.colors,back:'invalid'}}).colors.back,base.colors.back);
-assert.equal(resolveTheme('VerseCue Dark',{...base,name:'Another theme'}).colors.back,base.colors.back);
+const base=resolveTheme('verseVIO Dark');assert.equal(resolveTheme('verseVIO Dark',{...base,colors:{...base.colors,back:'#123456'}}).colors.back,'#123456');
+assert.equal(resolveTheme('verseVIO Dark',{...base,colors:{...base.colors,back:'invalid'}}).colors.back,base.colors.back);
+assert.equal(resolveTheme('verseVIO Dark',{...base,name:'Another theme'}).colors.back,base.colors.back);
 assert.equal(resolveTheme().name,'Celestial Blue');assert.equal(resolveTheme('Unknown').name,'Celestial Blue');
 console.log('PASS all '+count+' palettes match desktop sources, live palette overrides, invalid colours and older desktop fallbacks.');
 

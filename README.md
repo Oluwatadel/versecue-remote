@@ -1,4 +1,4 @@
-# VerseCue Remote · mobile operator workspace
+# verseVIO Remote · mobile operator workspace
 
 A separately installed Android/iPhone companion for VerseCue desktop, designed for **landscape**. It uses the desktop libraries, prepared preview, transcription, queues and congregation display over the same private LAN.
 
@@ -53,7 +53,7 @@ npm run build:ios
 
 These use Expo build services and require the project owner's Expo account. Android preview produces an APK; iPhone installation requires a signed iOS build with Apple credentials. No App Store release is configured automatically. A local Windows Android build uses `npx expo prebuild --platform android`, then from `android`: `.\gradlew.bat :app:assembleRelease '-PreactNativeArchitectures=arm64-v8a' --max-workers=2`. The Windows config plugin puts generated native objects in a short project-specific user cache folder (`%USERPROFILE%/.vcb`) to avoid Ninja filename limits without moving source or changing Windows policy.
 
-`artifacts/VerseCue-Remote-preview.apk` is the local preview download location, with a SHA-256 checksum. Verify the installed version is **1.1.3 / build 5** for the landscape workspace; earlier 1.0 builds only have basic controls. Local builds use the development signing certificate. Physical Android/iPhone pairing on the intended church network remains a release check. An exported iOS JavaScript bundle is not an installable IPA.
+`artifacts/verseVIO-Remote-preview.apk` is the local preview download location, with a SHA-256 checksum. Verify the installed version is **1.2.0 / build 6** for the landscape workspace; earlier 1.0 builds only have basic controls. Local builds use the development signing certificate. Physical Android/iPhone pairing on the intended church network remains a release check. An exported iOS JavaScript bundle is not an installable IPA.
 
 ## Connection protection
 
@@ -68,3 +68,7 @@ Android 17+ prompts for local-network access before connecting. Allow it when pa
 
 ### Verse positioning on the phone
 Open **Verse position** below live-output controls. Choose a quick position, nudge with arrows, or adjust horizontal/vertical position, width, height and text size. **Reset to default** restores the desktop’s saved presentation layout. When a live source is behind text, choose video behind/left/right or lower third, adjust the split and fit/fill. Changes synchronize with the desktop immediately and preserve blackout; they do not open projection when off-air. Requires the matching desktop update.
+
+## Paid mobile control
+
+The matching desktop now requires the signed mobile-remote entitlement before listening or accepting commands. Download the controller through the paid-account QR in desktop Settings; pair with its separate connection QR. Browser sign-in and rollout requirements are in ../VERSEVIO-ROLLOUT.md. Internal app IDs/network scopes remain stable for installed users.
