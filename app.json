@@ -2,7 +2,7 @@
   "expo": {
     "name": "verseVIO Remote",
     "slug": "versecue-remote",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "orientation": "landscape",
     "icon": "./assets/versecue-logo.png",
     "userInterfaceStyle": "light",
@@ -18,7 +18,7 @@
           "_versecue._tcp"
         ]
       },
-      "buildNumber": "6",
+      "buildNumber": "7",
       "requireFullScreen": true
     },
     "android": {
@@ -32,7 +32,7 @@
         "foregroundImage": "./assets/versecue-logo.png",
         "backgroundColor": "#ffffff"
       },
-      "versionCode": 6
+      "versionCode": 7
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -55,6 +55,20 @@
     "platforms": [
       "ios",
       "android"
-    ]
+    ],
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://verse-cue-web.vercel.app/api/updates/mobile",
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0,
+      "codeSigningCertificate": "./assets/update-certificate.pem",
+      "codeSigningMetadata": {
+        "keyid": "main",
+        "alg": "rsa-v1_5-sha256"
+      }
+    }
   }
 }
